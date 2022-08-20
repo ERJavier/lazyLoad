@@ -12,6 +12,6 @@ const observer = new IntersectionObserver((entries) => {
         .forEach(accion)
 })
 
-const registerImage = (imagen) => {
-
-}
+ export const registerImage = (imagen) => {
+    observer.observe(imagen);
+};
