@@ -1,4 +1,5 @@
 import { registerImage } from "./lazy";
+import jsx from 'hyperscript';
 
 const minimum = 1;
 const maximum = 122;
@@ -6,13 +7,19 @@ const random = () => Math.floor(Math.random() * (maximum - minimum)) + minimum;
 
 const createImageNode = () => {
 
-    const container = document.createElement("div");
-    container.className = "p-4";
+    // const container = document.createElement("div");
+    // container.className = "p-4";
+    const container = jsx("div.p-4");
 
-    const imagen = document.createElement("img");
-    imagen.className = "mx-auto";
-    imagen.width = "320";
-    imagen.dataset.src = `https://randomfox.ca/images/${random()}.jpg`
+    // const imagen = document.createElement("img");
+    // imagen.className = "mx-auto";
+    // imagen.width = "320";
+    // imagen.dataset.src = `https://randomfox.ca/images/${random()}.jpg`
+
+    const imagen = jsx("img.mx-auto", {
+        width: '320',
+        "data-src": `https://randomfox.ca/images/${random()}.jpg`
+    });
 
     const imageWrapper = document.createElement("div");
     imageWrapper.className = "bg-gray-300";
