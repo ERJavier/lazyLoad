@@ -1,26 +1,33 @@
-const isIntersecting = (entry) => {
-    return entry.isIntersecting 
-};
+const isIntersecting = entry => {
 
-const loadImage = (entry) => {
+    return entry.isIntersecting;
 
-    //imagen.src = `https://randomfox.ca/images/${url()}.jpg`;
+}
 
-    const container = entry.target 
+const loadImage = entry => {
 
-    const imagen = container.firstChild;
-    const imgURL = imagen.dataset.src;
+    const container = entry.target;
+    const imagen = container.querySelector("img");
+    const url = imagen.dataset.src;
+    imagen.src = url;
 
-    imagen.src = imgURL;
+    loadedImages++;
+    printLog();
 
-    observer.unobserve(container);
-};
-const observer = new IntersectionObserver((entries) => {
+    observer.unobserve(container)
+
+}
+
+const observer = new IntersectionObserver(entries => {
+
     entries
         .filter(isIntersecting)
-        .forEach(loadImage)
+        .forEach(loadImage);
+
 });
 
- export const registerImage = (imagen) => {
+export const registerImage = imagen => {
+
     observer.observe(imagen);
-};
+
+}
