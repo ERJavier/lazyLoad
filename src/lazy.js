@@ -2,14 +2,17 @@ const isIntersecting = (entry) => {
     return entry.isIntersecting 
 };
 
-const accion = (entry) => {
-    const nodo = entry.target
+const loadImage = (entry) => {
+
+    //imagen.src = `https://randomfox.ca/images/${url()}.jpg`;
+
+    const nodo = entry.target 
     observer.unobserve(nodo)
 };
 const observer = new IntersectionObserver((entries) => {
     entries
         .filter(isIntersecting)
-        .forEach(accion)
+        .forEach(loadImage)
 });
 
  export const registerImage = (imagen) => {
