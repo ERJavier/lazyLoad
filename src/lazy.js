@@ -6,8 +6,14 @@ const loadImage = (entry) => {
 
     //imagen.src = `https://randomfox.ca/images/${url()}.jpg`;
 
-    const nodo = entry.target 
-    observer.unobserve(nodo)
+    const container = entry.target 
+
+    const imagen = container.firstChild;
+    const imgURL = imagen.dataset.src;
+
+    imagen.src = imgURL;
+
+    observer.unobserve(container);
 };
 const observer = new IntersectionObserver((entries) => {
     entries
